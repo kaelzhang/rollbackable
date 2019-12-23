@@ -1,0 +1,48 @@
+{
+  "name": "rollbackable",
+  "version": "1.0.0",
+  "description": "Create a rollbackable object puppet to apply or cancel the mutation",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "NODE_DEBUG=rollbackable nyc ava --timeout=10s --verbose",
+    "test:dev": "NODE_DEBUG=rollbackable nyc ava --timeout=10s --verbose && npm run report:dev",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "posttest": "npm run report",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report:dev": "nyc report --reporter=html && npm run report:open",
+    "report:open": "open coverage/index.html"
+  },
+  "files": [
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/rollbackable.git"
+  },
+  "keywords": [
+    "rollbackable"
+  ],
+  "engines": {
+    "node": ">= 6"
+  },
+  "ava": {
+    "babel": false,
+    "files": [
+      "test/*.test.js"
+    ]
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/rollbackable/issues"
+  },
+  "devDependencies": {
+    "@ostai/eslint-config": "^3.5.0",
+    "ava": "^2.4.0",
+    "codecov": "^3.6.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nyc": "^15.0.0"
+  }
+}
